@@ -8,7 +8,9 @@ import math
 
 # Preprocessor Code
 
-nltk.download('stopwords')
+# if stop words are not downloaded, run : "nltk.download('stopwords')"
+
+nltk.data.path.append('data/nltk_data')
 
 class Preprocessor:
     def __init__(self):
