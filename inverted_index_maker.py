@@ -33,8 +33,8 @@ class InvertedIndexer:
         print("Indexing complete!")
 
 if __name__ == "__main__":
-    json_file_path = 'data/scraped_data.json'
-    index_output_file = 'data/inverted_index.json'
+    json_file_path = 'data/wiki_data.json'
+    index_output_file = 'data/wiki_inverted_index.json'
 
     inverted_indexer = InvertedIndexer(json_file_path, index_output_file)
     inverted_indexer.process_and_index()
