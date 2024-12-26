@@ -1,4 +1,6 @@
 from openai import AzureOpenAI
+import os
+import streamlit as st
 
 def generate_summary_with_gpt(summaries):
     """
@@ -10,11 +12,16 @@ def generate_summary_with_gpt(summaries):
     Returns:
         str: The final summarized text.
     """
+    # Retrieve secrets from Streamlit Cloud
+    azure_endpoint = st.secrets["AZURE_OPENAI_ENDPOINT"]
+    api_key = st.secrets["AZURE_OPENAI_API_KEY"]
+    api_version = st.secrets["AZURE_OPENAI_API_VERSION"]
+
     # Define Azure OpenAI client
     oiclient = AzureOpenAI(
-        azure_endpoint="https://openaiforchandrahas2.openai.azure.com/",  # Replace with your Azure OpenAI endpoint
-        api_key="DPLqEJbmD3X0980uiCQfoYFvsQ9TpbPTzax8t5Q460sbJtOdTIToJQQJ99AKACYeBjFXJ3w3AAABACOGCF5E",  # Replace with your actual Azure OpenAI API key
-        api_version="2024-08-01-preview"  # Replace with the correct API version
+        azure_endpoint=azure_endpoint,
+        api_key=api_key,
+        api_version=api_version
     )
 
     model = "gpt-4o"  # Replace with your Azure OpenAI model deployment name
