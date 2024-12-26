@@ -11,7 +11,7 @@ class ChitChatSystem:
             api_key=st.secrets["AZURE_OPENAI_API_KEY"],  
             api_version=st.secrets["AZURE_OPENAI_API_VERSION"]
         )
-        self.model = "gpt-4o"  # Replace with your model deployment name
+        self.model = "gpt-3.5-turbo"  # Replace with your model deployment name
 
     def generate_chitchat_response(self, user_input, chat_history=[]):
         """
