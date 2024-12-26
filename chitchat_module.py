@@ -1,14 +1,15 @@
 from openai import AzureOpenAI
+import streamlit as st
 
 class ChitChatSystem:
     def __init__(self):
         """
-        Initialize the Chit-Chat system with Azure OpenAI client.
+        Initialize the Chit-Chat system with Azure OpenAI client using secrets from Streamlit.
         """
         self.client = AzureOpenAI(
-            azure_endpoint="https://openaiforchandrahas2.openai.azure.com/",  # Replace with your Azure endpoint
-            api_key="DPLqEJbmD3X0980uiCQfoYFvsQ9TpbPTzax8t5Q460sbJtOdTIToJQQJ99AKACYeBjFXJ3w3AAABACOGCF5E",  # Replace with your API key
-            api_version="2024-08-01-preview"  # Use the correct API version
+            azure_endpoint=st.secrets["AZURE_OPENAI_ENDPOINT"], 
+            api_key=st.secrets["AZURE_OPENAI_API_KEY"],  
+            api_version=st.secrets["AZURE_OPENAI_API_VERSION"]
         )
         self.model = "gpt-4o"  # Replace with your model deployment name
 
