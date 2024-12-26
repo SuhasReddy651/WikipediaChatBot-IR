@@ -24,7 +24,7 @@ def generate_summary_with_gpt(summaries):
         api_version=api_version
     )
 
-    model = "gpt-4o"  # Replace with your Azure OpenAI model deployment name
+    model = "gpt-3.5-turbo"  # Replace with your Azure OpenAI model deployment name
 
     # Construct the prompt using summaries
     combined_input = "Summarize the following information shortly within 300 tokens:\n"
