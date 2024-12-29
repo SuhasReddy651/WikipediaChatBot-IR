@@ -54,3 +54,5 @@ streamlit run app.py
 •	**Chandrahas Reddy Gurram**: Chit-Chat Implementation, Summarizer, Analysis & Visualization.
 
 
+# 📄 License
+This project is licensed under the MIT License. More details can be found in the `LICENSE` file.
