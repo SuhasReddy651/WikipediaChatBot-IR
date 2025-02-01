@@ -12,10 +12,21 @@ The Wikipedia QnA Chatbot is an advanced Information Retrieval (IR) system desig
 7.	**Database Integration**: Persistent storage using SQLite for conversation history and analytics.
 
 # 🛠️ Tech Stack
-- Programming Language: Python.
-- Frameworks & Libraries: Streamlit, OpenAI API, NLTK, TF-IDF, SVM, SQLite.
-- Cloud Services: Azure, OpenAI.
-- Hosting Service - Streamlit Community Cloud
+- **Programming Language**: 
+  [![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)](#)
+
+- **Frameworks & Libraries**: 
+  [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](#) 
+  [![OpenAI](https://img.shields.io/badge/OpenAI-000000?style=for-the-badge&logo=openai&logoColor=white)](#) 
+  [![NLTK](https://img.shields.io/badge/NLTK-5B8DF0?style=for-the-badge&logo=nltk&logoColor=white)](#) 
+  [![TF-IDF](https://img.shields.io/badge/TF-IDF-FF6F20?style=for-the-badge&logo=elasticsearch&logoColor=white)](#) 
+  [![SVM](https://img.shields.io/badge/SVM-FF3D00?style=for-the-badge&logo=sklearn&logoColor=white)](#) 
+  [![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](#)
+
+- **Cloud Services**: 
+  [![Azure](https://custom-icon-badges.demolab.com/badge/Microsoft_Azure-0078D4?style=for-the-badge&logo=microsoftazure&logoColor=white)](#)
+  [![OpenAI](https://img.shields.io/badge/OpenAI-000000?style=for-the-badge&logo=openai&logoColor=white)](#)
+  [![Streamlit Community Cloud](https://img.shields.io/badge/Streamlit%20Community%20Cloud-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)](#)
 
 # 🏗️ Project Structure
 - `scraper.py` → Wikipedia article scraper  
@@ -48,10 +59,6 @@ pip install -r requirements.txt
 ```bash
 streamlit run app.py
 ```
-
-# 🧠 Team Members
-•	**Surya Suhas Reddy Sathi**: Scraping, Classifier Implementation, QnA Module, UI Development.  
-•	**Chandrahas Reddy Gurram**: Chit-Chat Implementation, Summarizer, Analysis & Visualization.
 
 
 # 📄 License
