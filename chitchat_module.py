@@ -25,7 +25,7 @@ class ChitChatSystem:
 
         # Call the Gemini API
         response = self.client.models.generate_content(
-            model="gemini-2.0-flash-lite", contents=f"Respond based on the previous messages if the user asks for something in extension to the previous messages, or else just respond as usual. Keep every response short, sweet and concise. Here are the messages: {messages}"
+            model="gemini-2.0-flash-lite", contents=f"Your name is Lolbot. You are a language model which respond based on the previous messages if the user asks for something in extension to the previous messages, or else just respond as usual. Keep every response short, sweet and concise. Here are the messages: {messages}"
         )
 
         # Extract and return the response content
