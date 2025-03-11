@@ -12,10 +12,7 @@ def generate_summary_with_gemini(summaries):
         str: The final summarized text.
     """
     # Configure API key
-    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-
-    # Initialize Gemini model
-    model = genai.GenerativeModel("gemini-2.0-flash-lite")
+    client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
     # Construct the prompt using summaries
     combined_input = "Summarize the following information concisely within 300 tokens:\n"
@@ -23,7 +20,9 @@ def generate_summary_with_gemini(summaries):
         combined_input += f"{i}. {summary}\n"
 
     # Call the Gemini API
-    response = model.generate_content(combined_input)
+    response = client.models.generate_content(
+        model = "gemini-2.0-flash-lite", contents= combined_input
+    )
 
     # Extract and return the summarized text
     return response.text.strip() if hasattr(response, "text") else response.candidates[0].content.strip()

@@ -6,11 +6,8 @@ class ChitChatSystem:
         """
         Initialize the Chit-Chat system with Google Gemini client using secrets from Streamlit.
         """
-        # Configure the API key
-        genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        
-        # Initialize the model
-        self.model = genai.GenerativeModel("gemini-2.0-flash-lite")
+        # Configure API key
+        self.client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
 
     def generate_chitchat_response(self, user_input, chat_history=[]):
         """
@@ -27,7 +24,9 @@ class ChitChatSystem:
         messages = "\n".join(chat_history) + f"\nUser: {user_input}"
 
         # Call the Gemini API
-        response = self.model.generate_content(messages)
+        response = self.client.models.generate_content(
+            model="gemini-2.0-flash-lite", contents=messages
+        )
 
         # Extract and return the response content
         return response.text.strip() if hasattr(response, "text") else response.candidates[0].content.strip()
