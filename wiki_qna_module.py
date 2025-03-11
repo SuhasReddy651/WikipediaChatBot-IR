@@ -2,13 +2,7 @@ import json
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from preprocess_index import Preprocessor
-from summarizer_module import generate_summary_with_gpt
-
-import json
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
-from preprocess_index import Preprocessor
-from summarizer_module import generate_summary_with_gpt
+from summarizer_module import generate_summary_with_gemini
 
 
 class QASystem:
@@ -87,7 +81,7 @@ def fetch_relevant_documents(query, topic, inverted_index, scraped_data):
     for i, answer in enumerate(answers, 1):
         combined_input += f"{i}. {answer}\n"
 
-    summary = generate_summary_with_gpt([combined_input])
+    summary = generate_summary_with_gemini([combined_input])
 
     # Include document IDs for tracking purposes
     doc_ids = [result["doc_id"] for result in doc_results]
