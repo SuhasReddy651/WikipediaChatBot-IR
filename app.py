@@ -333,7 +333,7 @@ def chatbot_interface():
     st.markdown(
         """
         <div style="text-align: center;">
-            <h1> Wiki - Answering Chat Bot </h1>
+            <h1> lol bot 🤖 </h1>
             <p>by suhas and chandrahas</p>
         </div>
         """,
