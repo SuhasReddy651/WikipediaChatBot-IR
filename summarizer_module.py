@@ -1,4 +1,3 @@
-import os
 import streamlit as st
 from google import genai
 
@@ -12,11 +11,11 @@ def generate_summary_with_gemini(summaries):
     Returns:
         str: The final summarized text.
     """
-    # Retrieve secrets from Streamlit Cloud
+    # Retrieve API key from Streamlit secrets
     api_key = st.secrets["GEMINI_API_KEY"]
 
-    # Initialize Google Gemini client
-    client = genai.Client(api_key=api_key)
+    # Initialize Google Gemini model
+    model = genai.GenerativeModel("gemini-2.0-flash-lite", api_key=api_key)
 
     # Construct the prompt using summaries
     combined_input = "Summarize the following information concisely within 300 tokens:\n"
@@ -24,20 +23,10 @@ def generate_summary_with_gemini(summaries):
         combined_input += f"{i}. {summary}\n"
 
     # Call the Gemini API
-    response = client.models.generate_content(
-        model="gemini-2.0-flash-lite",
-        contents=combined_input,
-        generation_config={
-            "max_tokens": 500,
-            "temperature": 0.2,
-            "top_p": 1.0,
-        }
-    )
+    response = model.generate_content(combined_input)
 
-    # Extract the summarized text from the response
-    summarized_text = response.text if hasattr(response, "text") else response["candidates"][0]["content"]
-    
-    return summarized_text.strip()
+    # Extract and return the summarized text
+    return response.text.strip() if hasattr(response, "text") else response.candidates[0].content.strip()
 
 def summarize_documents(documents):
     """
