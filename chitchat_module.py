@@ -24,15 +24,7 @@ class ChitChatSystem:
         messages = "\n".join(chat_history) + f"\nUser: {user_input}"
 
         # Call the Gemini API
-        response = self.client.models.generate_content(
-            model=self.model,
-            contents=messages,
-            generation_config={
-                "max_tokens": 100,
-                "temperature": 0.2,
-                "top_p": 1.0,
-            }
-        )
+        response = self.client.generate_content(messages)
 
         # Extract and return the response content
         return response.text.strip() if hasattr(response, "text") else response["candidates"][0]["content"].strip()
